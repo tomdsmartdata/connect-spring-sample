@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>enosix Sales Document Viewer</title>
+</head>
+<body>
+    <h1>Customers</h1>
+    <table id="customers">
+        <thead>
+        <tr>
+            <th>Customer #</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Region</th>
+            <th>Country</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer: ${customers}">
+            <td><a th:href="@{/customers/{id}(id=${customer.customerNumber})}" th:text="${customer.customerNumber}" /></td>
+            <td th:text="${customer.name}" />
+            <td th:text="${customer.city}" />
+            <td th:text="${customer.region}" />
+            <td th:text="${customer.countryKey}" />
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
